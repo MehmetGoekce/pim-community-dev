@@ -27,6 +27,7 @@ class DbalWrongCredentialsCombinationRepository implements WrongCredentialsCombi
         $insertSQL = <<<SQL
 INSERT INTO akeneo_connectivity_connection_wrong_credentials_combination
 VALUES (:connection_code, :username, NOW())
+ON DUPLICATE KEY authentication_date = NOW()
 SQL;
 
         $stmt = $this->dbalConnection->prepare($insertSQL);
@@ -64,7 +65,7 @@ SQL;
                     'users' => [],
                 ];
             }
-            $results[$code]['users'][$wrongCombination['username']] = [
+            $results[$code]['users'][] = [
                 'username' => $wrongCombination['username'],
                 'date' => $wrongCombination['date'],
             ];
