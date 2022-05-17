@@ -103,7 +103,7 @@
   "dependencies": {
     "babel-polyfill": "6.26.0",
     "backbone": "0.9.10",
-    "css-loader": "^3.3.0",
+    "css-loader": "^5.2.7",
     "dropzone": "4.0.1",
     "formik": "^2.0.6",
     "jquery": "3.4.0",
